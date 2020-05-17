@@ -1,4 +1,4 @@
-FROM node:alpine AS builder
+FROM node:alpine
 
 WORKDIR '/app'
 
@@ -6,7 +6,7 @@ COPY package*.json ./
 RUN yarn install
 COPY . .
 
-RUN yarn start
+RUN yarn build
 
 FROM nginx
 EXPOSE 80
